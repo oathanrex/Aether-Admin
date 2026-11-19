@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *, [data-theme="oled"], [data-theme="oled"] *, [data-theme="high-contrast"], [data-theme="high-contrast"] *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-app: var(--bg-app);
+  --color-surface: var(--bg-surface);
+  --color-elevated: var(--bg-surface-elevated);
+  --color-subtle: var(--bg-subtle);
+  --color-input: var(--bg-input);
+
+  --color-main: var(--text-main);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-inverse: var(--text-inverse);
+
+  --color-line: var(--border-subtle);
+  --color-line-strong: var(--border-medium);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-contrast: var(--accent-contrast);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+}
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-app: #09090b;
+  --bg-surface: #121215;
+  --bg-surface-elevated: #18181c;
+  --bg-subtle: #1e1e24;
+  --bg-input: #141418;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.24);
+
+  --text-main: #f4f4f7;
+  --text-secondary: #a1a1aa;
+  --text-muted: #7e7e8a;
+  --text-inverse: #09090b;
+
+  --accent: #8b7bff;
+  --accent-hover: #9f92ff;
+  --accent-contrast: #ffffff;
+
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #06b6d4;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-app: #f4f3f0;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f9f8f6;
+  --bg-subtle: #eceae4;
+  --bg-input: #ffffff;
+
+  --border-subtle: rgba(15, 23, 42, 0.09);
+  --border-medium: rgba(15, 23, 42, 0.16);
+  --border-strong: rgba(15, 23, 42, 0.28);
+
+  --text-main: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #526075;
+  --text-inverse: #ffffff;
+
+  --accent: #5b45ff;
+  --accent-hover: #4933eb;
+  --accent-contrast: #ffffff;
+
+  --success: #047857;
+  --warning: #b45309;
+  --danger: #dc2626;
+  --info: #0369a1;
+}
+
+[data-theme="oled"] {
+  color-scheme: dark;
+  --bg-app: #000000;
+  --bg-surface: #0a0a0c;
+  --bg-surface-elevated: #111115;
+  --bg-subtle: #18181f;
+  --bg-input: #0d0d10;
+
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-medium: rgba(255, 255, 255, 0.22);
+  --border-strong: rgba(255, 255, 255, 0.36);
+
+  --text-main: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-inverse: #000000;
+
+  --accent: #38bdf8;
+  --accent-hover: #7dd3fc;
+  --accent-contrast: #000000;
+
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --info: #38bdf8;
+}
+
+[data-theme="high-contrast"] {
+  color-scheme: dark;
+  --bg-app: #000000;
+  --bg-surface: #0a0a0a;
+  --bg-surface-elevated: #141414;
+  --bg-subtle: #222222;
+  --bg-input: #000000;
+
+  --border-subtle: rgba(255, 255, 255, 0.72);
+  --border-medium: #ffffff;
+  --border-strong: #ffffff;
+
+  --text-main: #ffffff;
+  --text-secondary: #f0f0f0;
+  --text-muted: #d4d4d4;
+  --text-inverse: #000000;
+
+  --accent: #ffff00;
+  --accent-hover: #ffffff;
+  --accent-contrast: #000000;
+
+  --success: #4ade80;
+  --warning: #facc15;
+  --danger: #f87171;
+  --info: #60a5fa;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    overflow-x: hidden;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="switch"],
+  [role="tab"],
+  summary {
+    cursor: pointer;
+  }
+}
+
+/* Native HTML5 progress and meter styling compatible with Tailwind themes */
+progress.aether-progress {
+  appearance: none;
+  -webkit-appearance: none;
+  overflow: hidden;
+  border-radius: 9999px;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+}
+progress.aether-progress::-webkit-progress-bar {
+  background-color: var(--bg-subtle);
+}
+progress.aether-progress::-webkit-progress-value {
+  background-color: var(--accent);
+  border-radius: 9999px;
+  transition: width 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+progress.aether-progress::-moz-progress-bar {
+  background-color: var(--accent);
+  border-radius: 9999px;
+}
+
+meter.aether-meter {
+  width: 100%;
+  height: 0.65rem;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+meter.aether-meter::-webkit-meter-bar {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+}
+meter.aether-meter::-webkit-meter-optimum-value {
+  background: var(--success);
+  border-radius: 9999px;
+}
+meter.aether-meter::-webkit-meter-suboptimum-value {
+  background: var(--warning);
+  border-radius: 9999px;
+}
+meter.aether-meter::-webkit-meter-even-less-good-value {
+  background: var(--danger);
+  border-radius: 9999px;
+}
+
+dialog.aether-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
