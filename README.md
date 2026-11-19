@@ -105,11 +105,18 @@ npm run dev
 | Command | Description |
 | :--- | :--- |
 | `npm run dev` | Starts Vite development server (`http://localhost:3000`) |
-| `npm run build` | Builds the production bundle into `dist/` |
+| `npm run build` | Builds the production bundle as a self-contained single HTML file into `dist/index.html` |
 | `npm run preview` | Previews the built `dist/` bundle locally |
 | `npm run lint` | Runs TypeScript type checking (`tsc --noEmit`) |
 | `npm test` | Runs pure-logic unit tests (`src/utils/dashboardLogic.test.ts`) |
 | `npm run clean` | Removes build output directories |
+
+### Standalone Single HTML File
+
+Aether Admin builds into a 100% self-contained single HTML file (`standalone.html` or `dist/index.html` via `vite-plugin-singlefile`). All JavaScript logic, icons, CSS styles, and responsive themes are inlined directly into one file.
+
+- **Offline Ready**: Simply double-click `standalone.html` in your browser. No Node.js server, CDN, or build pipeline required.
+- **GitHub Pages**: Automatically deploys the single-file build via `.github/workflows/deploy.yml`.
 
 ---
 
