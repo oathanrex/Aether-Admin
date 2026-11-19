@@ -1,6 +1,0 @@
-{
-  "name": "Aether Admin — Dashboard & HTML5 Kit",
-  "description": "Modern Tailwind CSS administration dashboard and complete semantic HTML5 element showcase with multi-theme support, responsive grid layout, and interactive controls.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
