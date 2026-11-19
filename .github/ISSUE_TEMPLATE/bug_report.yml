@@ -1,0 +1,37 @@
+name: Bug Report
+description: Report a layout, accessibility, or functional bug in Aether Admin
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: Clear summary of what happened and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps to trigger the issue.
+      placeholder: |
+        1. Open dashboard
+        2. Press Cmd+K
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Active Theme
+      options:
+        - Obsidian Dark
+        - Alabaster Light
+        - OLED Black
+        - High Contrast
+  - type: input
+    id: viewport
+    attributes:
+      label: Browser & Viewport
+      placeholder: e.g. Chrome 130, 1440x900 or 390x844

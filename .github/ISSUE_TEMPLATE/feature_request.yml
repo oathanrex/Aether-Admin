@@ -1,0 +1,19 @@
+name: Feature Request
+description: Suggest a new dashboard widget, HTML5 showcase section, or enhancement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: What would you like to add or improve?
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Motivation & Use Case
+      description: Why is this useful for the dashboard or semantic HTML showcase?
+    validations:
+      required: true
